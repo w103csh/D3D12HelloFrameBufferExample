@@ -113,6 +113,8 @@ void D3D12HelloFrameBuffering::LoadPipeline()
     ThrowIfFailed(swapChain.As(&m_swapChain));
 	m_frameIndex = m_swapChain->GetCurrentBackBufferIndex();
 	m_swapChainEvent = m_swapChain->GetFrameLatencyWaitableObject();
+    
+    ThrowIfFailed(m_swapChain->SetMaximumFrameLatency(FrameCount));
 
     // Create descriptor heaps.
     {
